@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+import re
+import json
+import os
+from deep_translator import GoogleTranslator
+
+# Dateien definieren
+quran_file = 'quran-simple-clean (1).txt'
+dict_file = 'woerterbuch.json'
+
+# Wörterbuch laden (oder neu erstellen)
+def load_dict():
+    if os.path.exists(dict_file):
+        with open(dict_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+# Wörterbuch speichern
+def save_dict(d):
+    with open(dict_file, 'w', encoding='utf-8') as f:
+        json.dump(d, f, ensure_ascii=False, indent=2)
+
+meanings = load_dict()
+
+# Koran-Text laden
+try:
+    with open(quran_file, 'r', encoding='utf-8') as f:
+        full_text = f.read()
+except FileNotFoundError:
+    print(f"Datei {quran_file} fehlt!")
+    exit()
+
+# Automatische Übersetzung (Arabisch → Deutsch)
+def auto_translate(wort):
+    try:
+        translator = GoogleTranslator(source='ar', target='de')
+        return translator.translate(wort)
+    except Exception as e:
+        print(f"   ⚠️ Übersetzungsfehler bei '{wort}': {e}")
+        return "??? (Fehler)"
+
+# --- Hauptprogramm ---
+print("\n--- Intelligentes Koran-System (mit Auto-Übersetzung) ---")
+start_input = input("ANFANG: ").strip()
+end_input   = input("ENDE: ").strip()
+
+start_idx = full_text.find(start_input)
+end_idx = full_text.find(end_input, start_idx)
+
+if start_idx == -1 or end_idx == -1:
+    print("Textstelle nicht gefunden!")
+    exit()
+
+text_segment = full_text[start_idx : end_idx + len(end_input)]
+
+# Stopwörter (kannst du später erweitern)
+stop_words = {'من', 'في', 'ما', 'إن', 'لا', 'على', 'الذين', 'إلا', 'ولا', 'وما', 'أن', 'ل', 'إلى'}
+
+all_words = re.findall(r'[\u0600-\u06FF]+', text_segment)
+words_cleaned = [w for w in all_words if w not in stop_words]
+
+# Ausgabe + automatische Übersetzung
+print("\nErgebnisse:")
+print("="*70)
+
+for i, wort in enumerate(words_cleaned, 1):
+    if wort not in meanings:
+        bedeutung = auto_translate(wort)
+        meanings[wort] = bedeutung          # automatisch ins Wörterbuch speichern
+        print(f"   → Neues Wort automatisch übersetzt: {wort}")
+    else:
+        bedeutung = meanings[wort]
+    
+    print(f"{i:>3}. {wort} → {bedeutung}")
+
+print("="*70)
+
+# Wörterbuch speichern (alle neuen Übersetzungen sind jetzt dauerhaft gespeichert)
+save_dict(meanings)
+print("✅ Wörterbuch automatisch aktualisiert!")
+
+# === ZUSÄTZLICH: Der gewünschte übersetzte Text ===
+print("\n--- Übersetzter Text (ohne Stoppwörter) ---")
+translated_text = ' '.join(meanings.get(wort, "???") for wort in words_cleaned)
+print(translated_text)
+print("================================================================")
