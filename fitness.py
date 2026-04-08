@@ -7,41 +7,47 @@ import os
 # Übungen Montag
 plan_data = {
     "Montag": [
-        "CAT COW POSE - Aufwärmen",
-        "• 5 Runden langsam atmen (Rücken rund/hohl machen)",
-        "• 30 Sekunden pro Übergang",
-        "",
-        "DECLINE SHOULDER PRESS - Schultern",
-        "• Füße erhöht (Stuhl/Sofa), Hände schulterbreit",
-        "• 3 Sätze x 10-12 Wiederholungen",
-        "",
-        "FRONT RAISES - Vordere Schultern",
-        "• Arme gerade vorne heben (Wasserflaschen)",
-        "• 3 Sätze x 12-15 Wiederholungen",
-        "",
-        "SIDE RAISES - Seitliche Schultern",
-        "• Arme seitlich heben bis Schulterhöhe",
-        "• 3 Sätze x 12-15 Wiederholungen",
-        "",
-        "SHOULDER PRESS - Alle Schultern",
-        "• Arme über Kopf drücken",
-        "• 3 Sätze x 10-12 Wiederholungen",
-        "",
-        "OVERHEAD TRICEP EXTENSION - Trizeps",
-        "• Einarmig hinter Kopf strecken",
-        "• 3 Sätze x 12 pro Arm",
-        "",
-        "DIPS - Trizeps/Brust",
-        "• Stuhl/Kante benutzen, Ellenbogen eng",
-        "• 3 Sätze x 8-12 Wiederholungen",
-        "",
-        "RUSSIAN TWIST - Schräge Bauchmuskeln",
-        "• Sitzen, Füße anheben, drehen",
-        "• 3 Sätze x 20 pro Seite",
-        "",
-        "SIDE BENDS - Seitliche Bauchmuskeln",
-        "• Stehend seitlich neigen (Gewichte optional)",
-        "• 3 Sätze x 15 pro Seite"
+        "🔵 SCHULTERN & TRIZEPS",
+        "1. CAT COW (Warm-up) | 5 Runden",
+        "2. DECLINE PRESS (Stuhl) | 3 x 12",
+        "3. FRONT RAISES (Vorn) | 3 x 15",
+        "4. SIDE RAISES (Seite) | 3 x 15",
+        "5. SHOULDER PRESS | 3 x 12",
+        "6. TRIZEPS (Über Kopf) | 3 x 12",
+        "7. DIPS (Stuhlkante) | 3 x 12",
+        "8. RUSSIAN TWIST | 3 x 20",
+        "9. SIDE BENDS | 3 x 15"
+    ],
+
+    "Dienstag": [
+        "🟢 BEINE & CORE",
+        "1. CAT COW (Warm-up) | 5 Runden",
+        "2. FARMERS WALK | 3 Bahnen",
+        "3. LUNGES (Ausfallschritte) | 3 x 12",
+        "4. STEP UPS (Stuhl) | 3 x 10",
+        "5. WADENHEBEN | 3 x 15",
+        "6. CRUNCH | 3 x 20",
+        "7. LEG RAISES | 3 x 15"
+    ],
+
+    "Mittwoch": [
+        "🔴 RÜCKEN & BIZEPS",
+        "1. CAT COW (Warm-up) | 5 Runden",
+        "2. RUDERN (Schrägbank) | 3 x 12",
+        "3. Standing rows | 5kg dann auf 2.5 + ",
+        "4. 1x /BICEP UBUNG | 5kg x 1 , 2x5kg+2.5kg  ",
+        "5. RUSSIAN TWIST | 3 x 20",
+        "6. SIDE BENDS | 3 x 15"
+    ],
+
+    "Donnerstag": [
+        "🔴 Lower Back & Core",
+        "1. CAT COW (Warm-up) | 5 Runden",
+        "2. Deadlift",
+        "3. Back Extension /Bett 5x ",
+        "4. CRUNCH | 3 x 20",
+        "5. LEG RAISES | 3 x 15"
+         
     ]
 }
 
@@ -55,42 +61,42 @@ UEBUNGEN_A_Z = {
     "A": {
         "name": "Kniebeugen (Squats)",
         "anleitung": (
-            "KORREKTE AUSFÜHRUNG:\n\n"
-            "1. Füße schulterbreit, Zehen leicht nach außen.\n"
-            "2. Rücken gerade, Brust raus, Kopf in Verlängerung.\n"
-            "3. Beuge die Knie, Po schieben nach hinten (nicht die Knie vor).\n"
-            "4. Unterkörper senken, bis Oberschenkel etwa parallel zum Boden.\n"
+            "KORREKTE AUSFÜHRUNG:\\\\n\\\\n"
+            "1. Füße schulterbreit, Zehen leicht nach außen.\\\\n"
+            "2. Rücken gerade, Brust raus, Kopf in Verlängerung.\\\\n"
+            "3. Beuge die Knie, Po schieben nach hinten (nicht die Knie vor).\\\\n"
+            "4. Unterkörper senken, bis Oberschenkel etwa parallel zum Boden.\\\\n"
             "5. Mit Oberschenkeln, Po und Waden wieder hochdrücken."
         )
     },
     "B": {
         "name": "Liegestütze (Push‑Ups)",
         "anleitung": (
-            "KORREKTE AUSFÜHRUNG:\n\n"
-            "1. Körper in einer Linie (Kopf, Hüfte, Fersen).\n"
-            "2. Hände schulterbreit unter den Schultern.\n"
-            "3. Beuge Arme, senke Brust Richtung Boden.\n"
-            "4. Arme vollständig durchdrücken, aber Schultern nicht „einknicken“.\n"
+            "KORREKTE AUSFÜHRUNG:\\\\n\\\\n"
+            "1. Körper in einer Linie (Kopf, Hüfte, Fersen).\\\\n"
+            "2. Hände schulterbreit unter den Schultern.\\\\n"
+            "3. Beuge Arme, senke Brust Richtung Boden.\\\\n"
+            "4. Arme vollständig durchdrücken, aber Schultern nicht „einknicken“.\\\\n"
         )
     },
     "C": {
         "name": "Crunches (Bauchmuskel)",
         "anleitung": (
-            "KORREKTE AUSFÜHRUNG:\n\n"
-            "1. Auf dem Rücken liegend, Knie gebeugt.\n"
-            "2. Hände leicht hinter dem Kopf (nicht ins Genick ziehen).\n"
-            "3. Schultern und obere Brust vom Boden heben.\n"
-            "4. Bauchmuskulatur dabei gespannt halten, nicht mit dem Nacken ziehen.\n"
+            "KORREKTE AUSFÜHRUNG:\\\\n\\\\n"
+            "1. Auf dem Rücken liegend, Knie gebeugt.\\\\n"
+            "2. Hände leicht hinter dem Kopf (nicht ins Genick ziehen).\\\\n"
+            "3. Schultern und obere Brust vom Boden heben.\\\\n"
+            "4. Bauchmuskulatur dabei gespannt halten, nicht mit dem Nacken ziehen.\\\\n"
             "5. Langsam zurück zum Boden, Bauch immer leicht angespannt."
         )
     },
     "D": {
         "name": "Plank (Unterarmstütz)",
         "anleitung": (
-            "KORREKTE AUSFÜHRUNG:\n\n"
-            "1. Auf den Unterarmen liegend, Ellbogen unter Schultern.\n"
-            "2. Körper in einer Linie, kein Hüfte‑Durchhängen, kein Hüfte‑Hochziehen.\n"
-            "3. Bauch und Po leicht anspannen, Luft gleichmäßig atmen.\n"
+            "KORREKTE AUSFÜHRUNG:\\\\n\\\\n"
+            "1. Auf den Unterarmen liegend, Ellbogen unter Schultern.\\\\n"
+            "2. Körper in einer Linie, kein Hüfte‑Durchhängen, kein Hüfte‑Hochziehen.\\\\n"
+            "3. Bauch und Po leicht anspannen, Luft gleichmäßig atmen.\\\\n"
             "4. Je nach Level 20–60 Sekunden halten."
         )
     }
@@ -216,7 +222,7 @@ class FitnessApp:
         self.root.geometry("450x500")
         self.root.minsize(400, 400)
 
-        self.tage = ["Montag"]
+        self.tage = ["Montag", "Dienstag", "Mittwoch", "Donnerstag"]
         self.hauptmenue()
 
     def hauptmenue(self):
@@ -246,7 +252,7 @@ class FitnessApp:
         scrollbar.config(command=self.listbox.yview)
 
         for tag in self.tage:
-            self.listbox.insert(tk.END, "Montag")
+            self.listbox.insert(tk.END, tag)
 
         self.listbox.pack(side="left", fill="both", expand=True)
         self.listbox.select_set(0)
@@ -311,7 +317,8 @@ class FitnessApp:
         selection = self.listbox.curselection()
         if not selection:
             return
-        tag = "Montag"
+
+        tag = self.listbox.get(selection)
 
         # Neues Fenster
         plan_win = tk.Toplevel(self.root)
@@ -339,9 +346,9 @@ class FitnessApp:
         )
         scrollbar.config(command=text.yview)
 
-        uebungen = plan_data["Montag"]
+        uebungen = plan_data[tag]
         for line in uebungen:
-            text.insert(tk.END, line + "\n")
+            text.insert(tk.END, line + "\\\\n")
         text.config(state="disabled")
 
         text.pack(fill="both", expand=True)
@@ -500,4 +507,5 @@ SCORE: 82/100"""
 
 
 # APP STARTEN
-FitnessApp().run()
+FitnessApp().run()  
+
