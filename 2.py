@@ -1,3 +1,4 @@
+# branch test
 #!/usr/bin/env python3
 import re
 import json
@@ -6,7 +7,7 @@ import os
 # Dateien definieren
 quran_file = 'quran-simple-clean (1).txt'
 dict_file = 'woerterbuch.json'
-
+s
 # 1. Wörterbuch laden (oder neu erstellen)
 def load_dict():
     if os.path.exists(dict_file):
